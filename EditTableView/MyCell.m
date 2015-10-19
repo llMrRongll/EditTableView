@@ -11,7 +11,6 @@
 
 @interface MyCell()
 
-@property (strong, nonatomic) UIButton * myButton;
 @property (strong, nonatomic) UILabel * myLabel;
 
 
@@ -72,12 +71,17 @@
     
 //    CGSize size = [myString boundingRectWithSize:CGSizeMake(myLabelFrame.size.width, MAXFLOAT) options:(NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading) attributes:@{NSFontAttributeName:myLabel.font} context:nil].size;
     
-    myButton.frame = CGRectMake(w - 100, h - 30, 100, 30);
     
-    [myLabel autoResizeUILabelHeightWithText:myString andOriginFrame:myLabelFrame andFont:[UIFont systemFontOfSize:15] andMaxHeight:MAXFLOAT];
+    [UIView animateWithDuration:0.3 animations:^{
+        myButton.frame = CGRectMake(w - 100, h - 30, 100, 30);
+        
+        [myLabel autoResizeUILabelHeightWithText:myString andOriginFrame:myLabelFrame andFont:[UIFont systemFontOfSize:15] andMaxHeight:MAXFLOAT];
+        
+        [self addSubview:myButton];
+        [self addSubview:myLabel];
+    }];
     
-    [self addSubview:myButton];
-    [self addSubview:myLabel];
+    
     
 }
 

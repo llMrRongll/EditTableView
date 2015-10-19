@@ -13,6 +13,8 @@
 @property (strong, nonatomic) void (^myBlock)(NSInteger tag);
 
 @property (strong, nonatomic) NSString * myString;
+@property (strong, nonatomic) UIButton * myButton;
+
 
 @property (nonatomic) NSInteger btnTag;
 

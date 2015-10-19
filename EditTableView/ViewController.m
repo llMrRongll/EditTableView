@@ -157,6 +157,10 @@
                 weakCell.myString = sourceString;
                 weakCell.isOpen = isChoosing;
                 weakCell.frame = cellFrame;
+                
+                [UIView animateWithDuration:0.5 animations:^{
+                    weakCell.myButton.transform = CGAffineTransformMakeRotation(M_PI);
+                }];
             } else {
                 
                 size = [sourceString boundingRectWithSize:CGSizeMake(cell.frame.size.width/2, MAXFLOAT) options:(NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading) attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]} context:nil].size;
@@ -172,6 +176,12 @@
                 weakCell.myString = sourceString;
                 weakCell.isOpen = isChoosing;
                 weakCell.frame = cellFrame;
+                
+                [UIView animateWithDuration:0.5 animations:^{
+                   
+                    weakCell.myButton.transform = CGAffineTransformMakeRotation(0);
+                    
+                }];
                 
             }
     
