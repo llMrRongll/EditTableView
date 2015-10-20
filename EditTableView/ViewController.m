@@ -19,7 +19,8 @@
 
 {
 
-    NSIndexPath * selectedIndex; //存储当前展开的cell的indexpath
+    NSInteger selectedIndex; //存储当前展开的cell的indexpath
+    NSInteger selectedSection;
     BOOL isChoosing; //记录展开按钮是否被点击
     CGFloat wholeTextHeight; //全文本高度
     CGSize size; //内容size
@@ -51,7 +52,7 @@
 
 -(void) initData {
 
-    selectedIndex = nil;
+    selectedIndex = -1;
     sourceString =  @"222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222";
     
     self.view.backgroundColor = [UIColor grayColor];
@@ -116,7 +117,7 @@
         
     }
     
-    if (selectedIndex != indexPath) {
+    if (selectedIndex != indexPath.row) {
         
         cell.myString = [sourceString substringToIndex:20];
         
@@ -131,14 +132,14 @@
     
     cell.myBlock = ^(NSInteger tag) {
         
-        if (selectedIndex != nil && selectedIndex != indexPath) {
+        if (selectedIndex != -1 && selectedIndex != indexPath.row) {
             isChoosing = NO;
             [tableView reloadData];
-            selectedIndex = nil;
+            selectedIndex = -1;
         } else {
         
             NSArray * array = @[indexPath];
-            selectedIndex = indexPath;
+            selectedIndex = indexPath.row;
             
             NSLog(@"contentViewHeight:%.2f", weakCell.frame.size.height);
             
@@ -152,7 +153,8 @@
                 
                 isChoosing = NO;
                 wholeTextHeight = 44;
-                selectedIndex = nil;
+                selectedIndex = -1;
+                selectedSection = -1;
                 
                 weakCell.myString = sourceString;
                 weakCell.isOpen = isChoosing;
@@ -169,7 +171,8 @@
                 
                 NSLog(@"contentViewHeight:%.2f", weakCell.frame.size.height);
             
-                selectedIndex = indexPath;
+                selectedIndex = indexPath.row;
+                selectedSection = indexPath.section;
                 isChoosing = YES;
                 wholeTextHeight = size.height;
                 
@@ -201,7 +204,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    if (isChoosing && selectedIndex == indexPath) {
+    if (isChoosing && selectedIndex == indexPath.row) {
         
         return wholeTextHeight;
         
@@ -218,9 +221,11 @@
     //如果当前是选中状态，点击cell之后重置tableview
     if (isChoosing) {
     
-        [tableView reloadRowsAtIndexPaths:@[selectedIndex] withRowAnimation:(UITableViewRowAnimationFade)];
+        NSIndexPath * ii = [NSIndexPath indexPathForRow:selectedIndex inSection:selectedSection];
+        
+        [tableView reloadRowsAtIndexPaths:@[ii] withRowAnimation:(UITableViewRowAnimationFade)];
     
-        selectedIndex = nil;
+        selectedIndex = -1;
         isChoosing = NO;
         [tableView reloadData];
     }
