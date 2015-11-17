@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "MyCell.h"
+#import "MyCell2.h"
+
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -41,6 +43,7 @@
     ttableView.dataSource = self;
     
     [ttableView registerClass:[MyCell class] forCellReuseIdentifier:@"cell"];
+    [ttableView registerClass:[MyCell2 class] forCellReuseIdentifier:@"cell2"];
     
     ttableView.editing = NO;
     
@@ -110,16 +113,19 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    MyCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+//    MyCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    
+    MyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     
     if (cell == nil) {
         cell = [[MyCell alloc] initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:@"cell"];
         
     }
+    __weak typeof (cell) weakCell = cell;
     
     if (selectedIndex != indexPath.row) {
         
-        cell.myString = [sourceString substringToIndex:20];
+        cell.myString = [sourceString substringToIndex:21];
         
     } else {
         
@@ -127,8 +133,7 @@
 
     }
 
-    //防止循环引用
-    __weak typeof (cell) weakCell = cell;
+//    防止循环引用
     
     cell.myBlock = ^(NSInteger tag) {
         
@@ -161,7 +166,7 @@
                 weakCell.frame = cellFrame;
                 
                 [UIView animateWithDuration:0.5 animations:^{
-                    weakCell.myButton.transform = CGAffineTransformMakeRotation(M_PI);
+//                    weakCell.myButton.transform = CGAffineTransformMakeRotation(M_PI);
                 }];
             } else {
                 
@@ -182,14 +187,14 @@
                 
                 [UIView animateWithDuration:0.5 animations:^{
                    
-                    weakCell.myButton.transform = CGAffineTransformMakeRotation(0);
+//                    weakCell.myButton.transform = CGAffineTransformMakeRotation(0);
                     
                 }];
                 
             }
     
-            [self.ttableView reloadRowsAtIndexPaths:array withRowAnimation:(UITableViewRowAnimationFade)];
-        
+//            [self.ttableView reloadRowsAtIndexPaths:array withRowAnimation:(UITableViewRowAnimationNone)];
+            [ttableView reloadData];
         }
         
         
@@ -213,7 +218,7 @@
         return 44;
         
     }
-
+    return wholeTextHeight;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -246,21 +251,21 @@
         
         if (sender.tag == 1) {
             cellCount ++;
-            [ttableView insertRowsAtIndexPaths:indexArray withRowAnimation:(UITableViewRowAnimationLeft)];
+            [ttableView insertRowsAtIndexPaths:indexArray withRowAnimation:(UITableViewRowAnimationNone)];
         } else {
             cellCount--;
-            [ttableView deleteRowsAtIndexPaths:indexArray withRowAnimation:(UITableViewRowAnimationRight)];
+            [ttableView deleteRowsAtIndexPaths:indexArray withRowAnimation:(UITableViewRowAnimationNone)];
             
         }
         
         [ttableView endUpdates];
         
         if (sender.tag == 1) {
-            [ttableView reloadRowsAtIndexPaths:indexArray withRowAnimation:(UITableViewRowAnimationLeft)];
+            [ttableView reloadRowsAtIndexPaths:indexArray withRowAnimation:(UITableViewRowAnimationNone)];
             
         } else {
             
-            [ttableView reloadRowsAtIndexPaths:indexArray withRowAnimation:(UITableViewRowAnimationRight)];
+            [ttableView reloadRowsAtIndexPaths:indexArray withRowAnimation:(UITableViewRowAnimationNone)];
             
         }
     }

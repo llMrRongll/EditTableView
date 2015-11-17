@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EditTableView/ViewController.m"
-            timestampString = "467049097.73721"
+            timestampString = "469194613.047287"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "227"
-            endingLineNumber = "227"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EditTableView/ViewController.m"
-            timestampString = "467049097.73721"
+            filePath = "EditTableView/MyCell.m"
+            timestampString = "469190201.535606"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
-            landmarkName = "-insertOrDelItem:"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-layoutSubviews"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EditTableView/MyCell.m"
-            timestampString = "466957793.84648"
+            filePath = "EditTableView/MyCell2.m"
+            timestampString = "469193928.533083"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "-layoutSubviews"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "-btnAction:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

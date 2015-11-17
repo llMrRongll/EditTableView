@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D5D82EC1BF7440600E907FE /* ColorChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5D82EB1BF7440600E907FE /* ColorChange.m */; settings = {ASSET_TAGS = (); }; };
+		9D5D82EF1BF746DD00E907FE /* MyCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5D82EE1BF746DD00E907FE /* MyCell2.m */; settings = {ASSET_TAGS = (); }; };
 		9DFB8A201BD147600077D43E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFB8A1F1BD147600077D43E /* main.m */; };
 		9DFB8A231BD147600077D43E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFB8A221BD147600077D43E /* AppDelegate.m */; };
 		9DFB8A261BD147600077D43E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFB8A251BD147600077D43E /* ViewController.m */; };
@@ -18,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9D5D82EA1BF7440600E907FE /* ColorChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorChange.h; sourceTree = "<group>"; };
+		9D5D82EB1BF7440600E907FE /* ColorChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorChange.m; sourceTree = "<group>"; };
+		9D5D82ED1BF746DD00E907FE /* MyCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCell2.h; sourceTree = "<group>"; };
+		9D5D82EE1BF746DD00E907FE /* MyCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCell2.m; sourceTree = "<group>"; };
 		9DFB8A1B1BD147600077D43E /* EditTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EditTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DFB8A1F1BD147600077D43E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9DFB8A211BD147600077D43E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -45,6 +51,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D5D82E91BF7440600E907FE /* ColorChange */ = {
+			isa = PBXGroup;
+			children = (
+				9D5D82EA1BF7440600E907FE /* ColorChange.h */,
+				9D5D82EB1BF7440600E907FE /* ColorChange.m */,
+			);
+			path = ColorChange;
+			sourceTree = "<group>";
+		};
 		9DFB8A121BD147600077D43E = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +79,7 @@
 		9DFB8A1D1BD147600077D43E /* EditTableView */ = {
 			isa = PBXGroup;
 			children = (
+				9D5D82E91BF7440600E907FE /* ColorChange */,
 				9DFB8A381BD231AC0077D43E /* UILabel+AutoResizeLabel.h */,
 				9DFB8A391BD231AC0077D43E /* UILabel+AutoResizeLabel.m */,
 				9DFB8A211BD147600077D43E /* AppDelegate.h */,
@@ -77,6 +93,8 @@
 				9DFB8A1E1BD147600077D43E /* Supporting Files */,
 				9DFB8A351BD22DDD0077D43E /* MyCell.h */,
 				9DFB8A361BD22DDD0077D43E /* MyCell.m */,
+				9D5D82ED1BF746DD00E907FE /* MyCell2.h */,
+				9D5D82EE1BF746DD00E907FE /* MyCell2.m */,
 			);
 			path = EditTableView;
 			sourceTree = "<group>";
@@ -162,8 +180,10 @@
 				9DFB8A261BD147600077D43E /* ViewController.m in Sources */,
 				9DFB8A3A1BD231AC0077D43E /* UILabel+AutoResizeLabel.m in Sources */,
 				9DFB8A371BD22DDD0077D43E /* MyCell.m in Sources */,
+				9D5D82EC1BF7440600E907FE /* ColorChange.m in Sources */,
 				9DFB8A231BD147600077D43E /* AppDelegate.m in Sources */,
 				9DFB8A201BD147600077D43E /* main.m in Sources */,
+				9D5D82EF1BF746DD00E907FE /* MyCell2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +332,7 @@
 				9DFB8A341BD147610077D43E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
